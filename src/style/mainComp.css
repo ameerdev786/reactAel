@@ -1,0 +1,135 @@
+.main {
+  width: 75%;
+}
+
+/* first section of price form */
+.priceform {
+  border: 2.2px solid rgb(140, 135, 135);
+  margin-left: 10px;
+  background-color: rgb(223, 222, 220);
+}
+.priceform form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 30vh;
+  justify-content: center;
+  align-items: center;
+}
+.priceform form div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.priceform form div input {
+  height: 5vh;
+  border-radius: 3px;
+}
+.priceform form div h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.btn-con {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-con button {
+  width: 150px;
+  background-color: rgb(81, 144, 231);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  position: relative;
+  bottom: 40px;
+  border-radius: 5px;
+}
+/* second section of info and kp4 */
+.info {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 35vh;
+  background-color: rgb(223, 222, 220);
+}
+.first-sec {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 2.2px solid rgb(140, 135, 135);
+}
+.first-sec .info-head,
+.total {
+  width: 100%;
+  padding: 0px 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.first-sec .info-head {
+  border-bottom: 2px solid rgb(159, 157, 163);
+}
+.first-sec .info-head h1 {
+  font-weight: bolder;
+  font-size: 30px;
+}
+.first-sec .info-head .border-h {
+  border-left: 5px dotted rgb(39, 38, 38);
+  width: 5px;
+  height: 5vh;
+}
+.first-sec .total {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.first-sec .total h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.first-sec .total div {
+  text-align: center;
+}
+.first-sec .total p {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(62, 56, 56);
+}
+.sec-sec {
+  width: 20%;
+  background-color: rgb(223, 222, 220);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.2px solid rgb(140, 135, 135);
+}
+/* third section you know */
+.kps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 99.3%;
+  height: 23.3vh;
+  grid-gap: 5px;
+  margin-left: 10px;
+  font-size: 25px;
+  font-weight: 500;
+}
+.kps .kp1,
+.kp2,
+.kp3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.2px solid rgb(140, 135, 135);
+  background-color: rgb(223, 222, 220);
+  margin-top: 5px;
+}

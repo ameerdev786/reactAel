@@ -1,0 +1,33 @@
+.sidefilters {
+  width: 17%;
+  height: 100%;
+  background-color: rgb(223, 222, 220);
+  border: 2px solid rgb(193, 186, 186);
+}
+.filterhead {
+  width: 90%;
+  margin: 40px auto 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.search{
+    display: block;
+    position: relative;
+}
+.search input{
+    font-size: 19px;
+    color: rgb(121, 121, 115);
+    font-weight: 500;
+}
+.search .icon{
+    position: absolute;
+    top: 28% ;
+    left: 10%;
+    font-size: 24px;
+    color: rgb(107, 107, 206);
+}
+
+

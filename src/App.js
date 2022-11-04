@@ -1,56 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { Counter } from "./features/counter/Counter";
+import SideFIlters from "./components/filters/SideFIlters";
+import DisplayInfo from "./components/maincomponents/DisplayInfo";
+import PriceForm from "./components/maincomponents/PriceForm";
+import Kp1 from "./components/maincomponents/Kp1";
+import Kp2 from "./components/maincomponents/Kp2";
+import Kp3 from "./components/maincomponents/Kp3";
+import Kp4 from "./components/maincomponents/Kp4";
+import "./App.css";
+import "./style/mainComp.css";
+import "./index.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="Ael">
+      <SideFIlters />
+      <div className="main">
+        <div className="infogrid">
+          <div>
+            <PriceForm />
+          </div>
+          <div>
+            <DisplayInfo />
+            {/* <Kp4 /> */}
+          </div>
+          <div className="kps">
+            <Kp1 />
+            <Kp2 />
+            <Kp3 />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
