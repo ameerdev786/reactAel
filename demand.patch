@@ -1,0 +1,816 @@
+diff --git a/package-lock.json b/package-lock.json
+index cd4cb6f..bb57540 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -19,13 +19,15 @@
+         "react-dom": "^18.2.0",
+         "react-icons": "^4.6.0",
+         "react-redux": "^8.0.4",
++        "react-router-dom": "^6.4.3",
+         "react-scripts": "^5.0.1",
++        "react-toastify": "^9.1.1",
+         "web-vitals": "^2.1.4"
+       },
+       "devDependencies": {
+         "autoprefixer": "^10.4.13",
+-        "postcss": "^8.4.18",
+-        "tailwindcss": "^3.2.1"
++        "postcss": "^8.4.19",
++        "tailwindcss": "^3.2.4"
+       }
+     },
+     "node_modules/@adobe/css-tools": {
+@@ -3142,6 +3144,14 @@
+         }
+       }
+     },
++    "node_modules/@remix-run/router": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/@remix-run/router/-/router-1.0.3.tgz",
++      "integrity": "sha512-ceuyTSs7PZ/tQqi19YZNBc5X7kj1f8p+4DIyrcIYFY9h+hd1OKm4RqtiWldR9eGEvIiJfsqwM4BsuCtRIuEw6Q==",
++      "engines": {
++        "node": ">=14"
++      }
++    },
+     "node_modules/@rollup/plugin-babel": {
+       "version": "5.3.1",
+       "resolved": "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz",
+@@ -5735,6 +5745,14 @@
+         "wrap-ansi": "^7.0.0"
+       }
+     },
++    "node_modules/clsx": {
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz",
++      "integrity": "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==",
++      "engines": {
++        "node": ">=6"
++      }
++    },
+     "node_modules/co": {
+       "version": "4.6.0",
+       "resolved": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
+@@ -12668,9 +12686,9 @@
+       }
+     },
+     "node_modules/postcss": {
+-      "version": "8.4.18",
+-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.18.tgz",
+-      "integrity": "sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==",
++      "version": "8.4.19",
++      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.19.tgz",
++      "integrity": "sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==",
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -14301,6 +14319,36 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/react-router": {
++      "version": "6.4.3",
++      "resolved": "https://registry.npmjs.org/react-router/-/react-router-6.4.3.tgz",
++      "integrity": "sha512-BT6DoGn6aV1FVP5yfODMOiieakp3z46P1Fk0RNzJMACzE7C339sFuHebfvWtnB4pzBvXXkHP2vscJzWRuUjTtA==",
++      "dependencies": {
++        "@remix-run/router": "1.0.3"
++      },
++      "engines": {
++        "node": ">=14"
++      },
++      "peerDependencies": {
++        "react": ">=16.8"
++      }
++    },
++    "node_modules/react-router-dom": {
++      "version": "6.4.3",
++      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.4.3.tgz",
++      "integrity": "sha512-MiaYQU8CwVCaOfJdYvt84KQNjT78VF0TJrA17SIQgNHRvLnXDJO6qsFqq8F/zzB1BWZjCFIrQpu4QxcshitziQ==",
++      "dependencies": {
++        "@remix-run/router": "1.0.3",
++        "react-router": "6.4.3"
++      },
++      "engines": {
++        "node": ">=14"
++      },
++      "peerDependencies": {
++        "react": ">=16.8",
++        "react-dom": ">=16.8"
++      }
++    },
+     "node_modules/react-scripts": {
+       "version": "5.0.1",
+       "resolved": "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.1.tgz",
+@@ -14373,6 +14421,18 @@
+         }
+       }
+     },
++    "node_modules/react-toastify": {
++      "version": "9.1.1",
++      "resolved": "https://registry.npmjs.org/react-toastify/-/react-toastify-9.1.1.tgz",
++      "integrity": "sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==",
++      "dependencies": {
++        "clsx": "^1.1.1"
++      },
++      "peerDependencies": {
++        "react": ">=16",
++        "react-dom": ">=16"
++      }
++    },
+     "node_modules/read-cache": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/read-cache/-/read-cache-1.0.0.tgz",
+@@ -15632,9 +15692,9 @@
+       "integrity": "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw=="
+     },
+     "node_modules/tailwindcss": {
+-      "version": "3.2.1",
+-      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.1.tgz",
+-      "integrity": "sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==",
++      "version": "3.2.4",
++      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.4.tgz",
++      "integrity": "sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==",
+       "dependencies": {
+         "arg": "^5.0.2",
+         "chokidar": "^3.5.3",
+@@ -15650,7 +15710,7 @@
+         "normalize-path": "^3.0.0",
+         "object-hash": "^3.0.0",
+         "picocolors": "^1.0.0",
+-        "postcss": "^8.4.17",
++        "postcss": "^8.4.18",
+         "postcss-import": "^14.1.0",
+         "postcss-js": "^4.0.0",
+         "postcss-load-config": "^3.1.4",
+@@ -19242,6 +19302,11 @@
+         "reselect": "^4.1.5"
+       }
+     },
++    "@remix-run/router": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/@remix-run/router/-/router-1.0.3.tgz",
++      "integrity": "sha512-ceuyTSs7PZ/tQqi19YZNBc5X7kj1f8p+4DIyrcIYFY9h+hd1OKm4RqtiWldR9eGEvIiJfsqwM4BsuCtRIuEw6Q=="
++    },
+     "@rollup/plugin-babel": {
+       "version": "5.3.1",
+       "resolved": "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz",
+@@ -21195,6 +21260,11 @@
+         "wrap-ansi": "^7.0.0"
+       }
+     },
++    "clsx": {
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz",
++      "integrity": "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg=="
++    },
+     "co": {
+       "version": "4.6.0",
+       "resolved": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
+@@ -26217,9 +26287,9 @@
+       }
+     },
+     "postcss": {
+-      "version": "8.4.18",
+-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.18.tgz",
+-      "integrity": "sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==",
++      "version": "8.4.19",
++      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.19.tgz",
++      "integrity": "sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==",
+       "requires": {
+         "nanoid": "^3.3.4",
+         "picocolors": "^1.0.0",
+@@ -27207,6 +27277,23 @@
+       "resolved": "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz",
+       "integrity": "sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A=="
+     },
++    "react-router": {
++      "version": "6.4.3",
++      "resolved": "https://registry.npmjs.org/react-router/-/react-router-6.4.3.tgz",
++      "integrity": "sha512-BT6DoGn6aV1FVP5yfODMOiieakp3z46P1Fk0RNzJMACzE7C339sFuHebfvWtnB4pzBvXXkHP2vscJzWRuUjTtA==",
++      "requires": {
++        "@remix-run/router": "1.0.3"
++      }
++    },
++    "react-router-dom": {
++      "version": "6.4.3",
++      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.4.3.tgz",
++      "integrity": "sha512-MiaYQU8CwVCaOfJdYvt84KQNjT78VF0TJrA17SIQgNHRvLnXDJO6qsFqq8F/zzB1BWZjCFIrQpu4QxcshitziQ==",
++      "requires": {
++        "@remix-run/router": "1.0.3",
++        "react-router": "6.4.3"
++      }
++    },
+     "react-scripts": {
+       "version": "5.0.1",
+       "resolved": "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.1.tgz",
+@@ -27262,6 +27349,14 @@
+         "workbox-webpack-plugin": "^6.4.1"
+       }
+     },
++    "react-toastify": {
++      "version": "9.1.1",
++      "resolved": "https://registry.npmjs.org/react-toastify/-/react-toastify-9.1.1.tgz",
++      "integrity": "sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==",
++      "requires": {
++        "clsx": "^1.1.1"
++      }
++    },
+     "read-cache": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/read-cache/-/read-cache-1.0.0.tgz",
+@@ -28199,9 +28294,9 @@
+       "integrity": "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw=="
+     },
+     "tailwindcss": {
+-      "version": "3.2.1",
+-      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.1.tgz",
+-      "integrity": "sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==",
++      "version": "3.2.4",
++      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.4.tgz",
++      "integrity": "sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==",
+       "requires": {
+         "arg": "^5.0.2",
+         "chokidar": "^3.5.3",
+@@ -28217,7 +28312,7 @@
+         "normalize-path": "^3.0.0",
+         "object-hash": "^3.0.0",
+         "picocolors": "^1.0.0",
+-        "postcss": "^8.4.17",
++        "postcss": "^8.4.18",
+         "postcss-import": "^14.1.0",
+         "postcss-js": "^4.0.0",
+         "postcss-load-config": "^3.1.4",
+diff --git a/package.json b/package.json
+index 0f8046a..353e5aa 100644
+--- a/package.json
++++ b/package.json
+@@ -14,7 +14,9 @@
+     "react-dom": "^18.2.0",
+     "react-icons": "^4.6.0",
+     "react-redux": "^8.0.4",
++    "react-router-dom": "^6.4.3",
+     "react-scripts": "^5.0.1",
++    "react-toastify": "^9.1.1",
+     "web-vitals": "^2.1.4"
+   },
+   "scripts": {
+@@ -43,7 +45,7 @@
+   },
+   "devDependencies": {
+     "autoprefixer": "^10.4.13",
+-    "postcss": "^8.4.18",
+-    "tailwindcss": "^3.2.1"
++    "postcss": "^8.4.19",
++    "tailwindcss": "^3.2.4"
+   }
+ }
+diff --git a/src/App.css b/src/App.css
+index e817bcd..69cb803 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -1,15 +1,58 @@
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+-*{
++* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+ .Ael {
+-    width: 100%;
+-    height: 100vh;
+-    padding: 25px;
+-    display: flex;
+-    align-items: center;
+-}
+\ No newline at end of file
++  width: 100%;
++  height: 100vh;
++  padding: 25px;
++  display: flex;
++  align-items: center;
++}
++nav {
++  width: 89.5%;
++  margin-left:23px ;
++  background-color:  rgb(223, 222, 220);
++}
++.ul {
++  width: 30%;
++  height: 5vh;
++  margin-left: 50px !important ;
++  display: flex;
++  align-items: center;
++  justify-content: space-between;
++  flex-direction: row;
++}
++.select{
++  width: 270px !important;
++  padding: 15px;
++}
++.demand-table{
++  width: 89.6%;
++  margin-left: 23px;
++}
++.demand-btn{
++  position: absolute;
++  right: 10%;
++  top: 7%;
++  /* background-color: rgb(148, 148, 252); */
++  width: 100px;
++  text-align: center;
++  padding: 10px;
++  color: white;
++  border-radius: 10px;
++}
++@media screen and (max-width: 1000px) {
++  .Ael {
++    height: auto;
++  }
++}
++@media screen and (max-width: 520px) {
++  .Ael {
++    margin-bottom: 100px;
++  }
++}
+diff --git a/src/App.js b/src/App.js
+index 881060c..1dd3422 100644
+--- a/src/App.js
++++ b/src/App.js
+@@ -1,4 +1,4 @@
+-import React from "react";
++import React, { useEffect, useState } from "react";
+ import { Counter } from "./features/counter/Counter";
+ import SideFIlters from "./components/filters/SideFIlters";
+ import DisplayInfo from "./components/maincomponents/DisplayInfo";
+@@ -10,28 +10,35 @@ import Kp4 from "./components/maincomponents/Kp4";
+ import "./App.css";
+ import "./style/mainComp.css";
+ import "./index.css";
++import { FaSearch, FaBars } from "react-icons/fa";
++ import "react-toastify/dist/ReactToastify.css";
++import {
++  BrowserRouter,
++  Routes,
++  Route,
++  Router,
++  Navigate,
++} from "react-router-dom";
++import Home from "./pages/Home";
++import Header from "./components/Header";
++import DemandPage from "./pages/Demand";
++import DemandPost from "./components/Demand/DemandPost";
++import DemandEdit from "./components/Demand/DemandEdit";
+ 
+ function App() {
+   return (
+-    <div className="Ael">
+-      <SideFIlters />
+-      <div className="main">
+-        <div className="infogrid">
+-          <div>
+-            <PriceForm />
+-          </div>
+-          <div>
+-            <DisplayInfo />
+-            {/* <Kp4 /> */}
+-          </div>
+-          <div className="kps">
+-            <Kp1 />
+-            <Kp2 />
+-            <Kp3 />
+-          </div>
+-        </div>
+-      </div>
+-    </div>
++    <>
++      {" "}
++      <Header />
++      <BrowserRouter>
++        <Routes>
++          <Route path="/" element={<Home />} />
++          <Route path="/demand" element={<DemandPage />} />
++          <Route path="/demandpost" element={<DemandPost />} />
++          <Route path="/demandedit" element={<DemandEdit />} />
++        </Routes>
++      </BrowserRouter>
++    </>
+   );
+ }
+ 
+diff --git a/src/components/filters/Select.jsx b/src/components/filters/Select.jsx
+index 855eccd..a298539 100644
+--- a/src/components/filters/Select.jsx
++++ b/src/components/filters/Select.jsx
+@@ -3,20 +3,19 @@ import { BiChevronDown } from "react-icons/bi";
+ import { AiOutlineSearch } from "react-icons/ai";
+ import { FaSortDown } from "react-icons/fa";
+ 
+-const Selector = ({ title }) => {
+-  const [countries, setCountries] = useState(null);
++const Selector = ({ title, api }) => {
++  const [filtersOption, setFilters] = useState(null);
+   const [inputValue, setInputValue] = useState("");
+   const [selected, setSelected] = useState("");
+   const [open, setOpen] = useState(false);
+   console.log(selected);
+ 
+   useEffect(() => {
+-    fetch("https://restcountries.com/v2/all?fields=name")
++    fetch(api)
+       .then((res) => res.json())
+       .then((data) => {
+-       
+-          setCountries(data.splice(3));
+-       
++        console.log(data,'data');
++        setFilters(data.message);
+       });
+   }, []);
+   return (
+@@ -24,7 +23,7 @@ const Selector = ({ title }) => {
+       <div
+         onClick={() => setOpen(!open)}
+         className={`bg-gray-500 text-white w-full p-2 flex items-center justify-between rounded ${
+-          !selected && "text-gray-700"
++          !selected && "text-gray-700 text-white"
+         }`}
+       >
+         {selected
+@@ -32,35 +31,39 @@ const Selector = ({ title }) => {
+             ? selected?.substring(0, 25) + "..."
+             : selected
+           : title}
+-        <FaSortDown size={20} className={`${open && "rotate-180"}`} />
++        <FaSortDown
++          size={20}
++          className={`text-white ${open && "rotate-180"}`}
++        />
+       </div>
+       <ul
+         className={`bg-white mt-2 w-11/12 rounded-md border-2 border-gray-400  mx-auto overflow-y-auto overflow-x-hidden ${
+           open ? "max-h-60" : "max-h-0"
+         } `}
+       >
+-        {countries?.map((country) => (
++        {filtersOption?.map((option) => (
+           <li
+-            key={country?.name}
++            key={option?.name}
+             className={`p-2 text-sm hover:bg-sky-600 hover:text-white
+             ${
+-              country?.name?.toLowerCase() === selected?.toLowerCase() &&
+-              "bg-sky-600 text-white"
++              option?.name?.toLowerCase() === selected?.toLowerCase() &&
++              "bg-sky-600 "
+             }
+             ${
+-              country?.name?.toLowerCase().startsWith(inputValue)
++              option?.name?.toLowerCase().startsWith(inputValue)
+                 ? "block"
+                 : "hidden"
+             }`}
+             onClick={() => {
+-              if (country?.name?.toLowerCase() !== selected.toLowerCase()) {
+-                setSelected(country?.name);
++              if (option?.name?.toLowerCase() !== selected.toLowerCase()) {
++                setSelected(option?.name);
++                console.log(option.id);
+                 setOpen(false);
+                 setInputValue("");
+               }
+             }}
+           >
+-            {country?.name}
++            {option?.name}
+           </li>
+         ))}
+       </ul>
+diff --git a/src/components/filters/SideFIlters.jsx b/src/components/filters/SideFIlters.jsx
+index 4cb304f..13dcf8a 100644
+--- a/src/components/filters/SideFIlters.jsx
++++ b/src/components/filters/SideFIlters.jsx
+@@ -1,11 +1,19 @@
+-import React from 'react';
+-import "../../style/sidefilters.css"
+-import Selector from './Select';
+-import { FaSearch } from "react-icons/fa";
++import React ,{useState,useEffect}from "react";
++import "../../style/sidefilters.css";
++import Selector from "./Select";
++import { FaSearch,FaBars } from "react-icons/fa";
+ 
+-function SideFIlters() {
++function SideFIlters({ openFilters, setFIltetrs }) {
++  // useEffect(() => {
++  //   console.log(setFilters, "lo");
++  // }, [setFilters]);
++  const gradeApi='http://13.230.65.59:8000/coal/grade'
++  const originApi='http://13.230.65.59:8000/coal/origin'
++  const portApi='http://13.230.65.59:8000/coal/port'
+   return (
+-    <div className="sidefilters ">
++    <div
++      className={` ${openFilters ? "showfilter" : "hidefilters"} sidefilters`}
++    >
+       <div className="filterhead">
+         <h1>Filters</h1>
+         <h1>Clear Filters</h1>
+@@ -20,12 +28,11 @@ function SideFIlters() {
+         />
+         <FaSearch className="icon" />
+       </div>
+-
+-      <Selector title="Port"/>
+-      <Selector title="Grade" />
+-      <Selector title="Origin" />
++      <Selector title="Port" api={portApi} />
++      <Selector title="Grade" api={gradeApi} />
++      <Selector title="Origin" api={originApi} />
+     </div>
+   );
+ }
+ 
+-export default SideFIlters;
+\ No newline at end of file
++export default SideFIlters;
+diff --git a/src/components/maincomponents/PriceForm.jsx b/src/components/maincomponents/PriceForm.jsx
+index 234860f..09a07b7 100644
+--- a/src/components/maincomponents/PriceForm.jsx
++++ b/src/components/maincomponents/PriceForm.jsx
+@@ -1,27 +1,61 @@
+-import React from 'react'
++import React, { useEffect, useState } from "react";
+ 
+ function PriceForm() {
++  const [priceValues, setValues] = useState({
++    competitor: "",
++    baseprice: "",
++    indexprice: "",
++  });
++  function changeHandler(e) {
++    let value = e.target.value;
++    let name = e.target.name;
++    setValues({ ...priceValues, [name]: value });
++  }
++  function submit() {
++    console.log(priceValues, "priceValues");
++    setValues({
++      competitor: "",
++      baseprice: "",
++      indexprice: "",
++    });
++  }
++
+   return (
+     <div className="priceform">
+       <form>
+         <div>
+           <h1>Competitor Price</h1>
+-          <input type="text" />
++          <input
++            type="text"
++            name="competitor"
++            value={priceValues.competitor}
++            onChange={(e) => changeHandler(e)}
++          />
+         </div>
+         <div>
+           <h1>Base Price</h1>
+-          <input type="text" />
++          <input
++            type="text"
++            name="baseprice"
++            value={priceValues.baseprice}
++            onChange={(e) => changeHandler(e)}
++          />
+         </div>
+         <div>
+           <h1>Index Price</h1>
+-          <input type="text" />
++          <input
++            type="text"
++            name="indexprice"
++            value={priceValues.indexprice}
++            onChange={(e) => changeHandler(e)}
++          />
+         </div>
+       </form>
+       <div className="btn-con">
+-        <button>Submit</button>
++        <button onClick={submit}>Submit</button>
+       </div>
+     </div>
+   );
+ }
+ 
+-export default PriceForm;
+\ No newline at end of file
++export default PriceForm;
+diff --git a/src/style/mainComp.css b/src/style/mainComp.css
+index 455a2fc..bbc2e59 100644
+--- a/src/style/mainComp.css
++++ b/src/style/mainComp.css
+@@ -8,6 +8,22 @@
+   margin-left: 10px;
+   background-color: rgb(223, 222, 220);
+ }
++.demandpost {
++  border: 2.2px solid rgb(140, 135, 135);
++  margin-left: 20px;
++  margin-top: 30px;
++  background-color: rgb(223, 222, 220);
++  width: 90%;
++  /* margin-right: auto; */
++}
++.demandpost form {
++  width: 100%;
++  display: grid;
++  grid-template-columns: repeat(3, 1fr);
++  height: 40vh;
++  justify-content: center;
++  align-items: center;
++}
+ .priceform form {
+   width: 100%;
+   display: grid;
+@@ -16,21 +32,23 @@
+   justify-content: center;
+   align-items: center;
+ }
+-.priceform form div {
++.priceform form div ,.demandpost form div {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+ }
+-.priceform form div input {
++.priceform form div input ,.demandpost form div input {
+   height: 5vh;
+   border-radius: 3px;
++  padding: 0px 10px;
+ }
+-.priceform form div h1 {
++.priceform form div h1 ,.demandpost form div h1{
+   font-size: 25px;
+   font-weight: bold;
+ }
+ 
++
+ .btn-con {
+   width: 100%;
+   display: flex;
+@@ -133,3 +151,61 @@
+   background-color: rgb(223, 222, 220);
+   margin-top: 5px;
+ }
++.kp1:hover {
++  background-color: rgb(193, 193, 193);
++}
++.kp2:hover {
++  background-color: rgb(193, 193, 193);
++}
++.kp3:hover {
++  background-color: rgb(193, 193, 193);
++}
++.sec-sec:hover {
++  background-color: rgb(193, 193, 193);
++}
++
++/*  responsiveness */
++@media screen and (max-width: 1200px) {
++  .main {
++    height: 100%;
++  }
++  .priceform form {
++    width: 100%;
++    display: grid;
++    grid-template-columns: repeat(1, 1fr);
++    height: 40vh;
++  }
++  .priceform form div input {
++    width: 80%;
++  }
++  .btn-con button {
++    bottom: 5px;
++  }
++}
++@media screen and (max-width: 540px) {
++  .main {
++    width: 100%;
++    z-index: 100;
++  }
++  .info {
++    display: grid;
++    grid-template-columns: repeat(1, 1fr);
++    height: auto;
++  }
++  .first-sec,
++  .sec-sec {
++    width: 100%;
++  }
++  .sec-sec {
++    height: 17vh;
++  }
++  .first-sec .total {
++    width: 100%;
++    height: 100%;
++    padding: 20px;
++    display: flex;
++    align-items: center;
++    text-align: center;
++    justify-content: space-between;
++  }
++}
+diff --git a/src/style/sidefilters.css b/src/style/sidefilters.css
+index 09a9fd1..c576baa 100644
+--- a/src/style/sidefilters.css
++++ b/src/style/sidefilters.css
+@@ -1,8 +1,9 @@
+ .sidefilters {
+   width: 17%;
+-  height: 100%;
++  height: 95vh;
+   background-color: rgb(223, 222, 220);
+   border: 2px solid rgb(193, 186, 186);
++  overflow: scroll;
+ }
+ .filterhead {
+   width: 90%;
+@@ -13,21 +14,60 @@
+   font-weight: bolder;
+   font-size: 20px;
+ }
+-.search{
+-    display: block;
+-    position: relative;
++.search {
++  display: block;
++  position: relative;
+ }
+-.search input{
+-    font-size: 19px;
+-    color: rgb(121, 121, 115);
+-    font-weight: 500;
++.search input {
++  font-size: 19px;
++  color: rgb(121, 121, 115);
++  font-weight: 500;
+ }
+-.search .icon{
+-    position: absolute;
+-    top: 28% ;
+-    left: 10%;
+-    font-size: 24px;
+-    color: rgb(107, 107, 206);
++.search .icon {
++  position: absolute;
++  top: 28%;
++  left: 10%;
++  font-size: 24px;
++  color: rgb(107, 107, 206);
++}
++.hamburger {
++  position: absolute;
++  left: 7%;
++  top: 0.5%;
++  z-index: 200;
++  display: none;
+ }
+ 
+-
++@media screen and (max-width: 1000px) {
++  .sidefilters {
++    height: 105vh;
++  }
++}
++@media screen and (max-width: 820px) {
++  .sidefilters {
++    width: 30%;
++  }
++}
++@media screen and (max-width: 520px) {
++  .showfilter {
++    width: 50%;
++    position: fixed;
++    /* display: none; */
++    z-index: 200;
++    top: 2.6%;
++    left: 0%;
++    overflow: scroll;
++    padding-bottom:60px ;
++  }
++  .hidefilters{
++    width: 50%;
++    position: absolute;
++    display: none;
++    /* left: -40%; */
++    z-index: 200;
++  }
++  .hamburger{
++    display: block;
++    position: fixed;
++  }
++}

@@ -8,6 +8,22 @@
   margin-left: 10px;
   background-color: rgb(223, 222, 220);
 }
+.demandpost {
+  border: 2.2px solid rgb(140, 135, 135);
+  margin-left: 20px;
+  margin-top: 30px;
+  background-color: rgb(223, 222, 220);
+  width: 90%;
+  /* margin-right: auto; */
+}
+.demandpost form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
+}
 .priceform form {
   width: 100%;
   display: grid;
@@ -16,20 +32,22 @@
   justify-content: center;
   align-items: center;
 }
-.priceform form div {
+.priceform form div ,.demandpost form div {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.priceform form div input {
+.priceform form div input ,.demandpost form div input {
   height: 5vh;
   border-radius: 3px;
+  padding: 0px 10px;
 }
-.priceform form div h1 {
+.priceform form div h1 ,.demandpost form div h1{
   font-size: 25px;
   font-weight: bold;
 }
+
 
 .btn-con {
   width: 100%;
@@ -132,4 +150,62 @@
   border: 2.2px solid rgb(140, 135, 135);
   background-color: rgb(223, 222, 220);
   margin-top: 5px;
+}
+.kp1:hover {
+  background-color: rgb(193, 193, 193);
+}
+.kp2:hover {
+  background-color: rgb(193, 193, 193);
+}
+.kp3:hover {
+  background-color: rgb(193, 193, 193);
+}
+.sec-sec:hover {
+  background-color: rgb(193, 193, 193);
+}
+
+/*  responsiveness */
+@media screen and (max-width: 1200px) {
+  .main {
+    height: 100%;
+  }
+  .priceform form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: 40vh;
+  }
+  .priceform form div input {
+    width: 80%;
+  }
+  .btn-con button {
+    bottom: 5px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .main {
+    width: 100%;
+    z-index: 100;
+  }
+  .info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: auto;
+  }
+  .first-sec,
+  .sec-sec {
+    width: 100%;
+  }
+  .sec-sec {
+    height: 17vh;
+  }
+  .first-sec .total {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
 }

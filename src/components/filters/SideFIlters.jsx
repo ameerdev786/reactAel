@@ -1,11 +1,19 @@
-import React from 'react';
-import "../../style/sidefilters.css"
-import Selector from './Select';
-import { FaSearch } from "react-icons/fa";
+import React ,{useState,useEffect}from "react";
+import "../../style/sidefilters.css";
+import Selector from "./Select";
+import { FaSearch,FaBars } from "react-icons/fa";
 
-function SideFIlters() {
+function SideFIlters({ openFilters, setFIltetrs }) {
+  // useEffect(() => {
+  //   console.log(setFilters, "lo");
+  // }, [setFilters]);
+  const gradeApi='http://13.230.65.59:8000/coal/grade'
+  const originApi='http://13.230.65.59:8000/coal/origin'
+  const portApi='http://13.230.65.59:8000/coal/port'
   return (
-    <div className="sidefilters ">
+    <div
+      className={` ${openFilters ? "showfilter" : "hidefilters"} sidefilters`}
+    >
       <div className="filterhead">
         <h1>Filters</h1>
         <h1>Clear Filters</h1>
@@ -20,10 +28,9 @@ function SideFIlters() {
         />
         <FaSearch className="icon" />
       </div>
-
-      <Selector title="Port"/>
-      <Selector title="Grade" />
-      <Selector title="Origin" />
+      <Selector title="Port" api={portApi} />
+      <Selector title="Grade" api={gradeApi} />
+      <Selector title="Origin" api={originApi} />
     </div>
   );
 }
