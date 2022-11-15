@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
-  import { ToastContainer, toast } from "react-toastify";
-
+import { ToastContainer, toast } from "react-toastify";
 
 function DemandTable() {
-  const [demandData, setDemandData] = useState([]);
-  const navigate=useNavigate()
-  const getDemandData = () => [
-    axios("http://13.230.65.59:8000/coal/demand/filter", {
+  const [supplyData, setSupplyData] = useState([]);
+  const navigate = useNavigate();
+  const getsupplyData = () => [
+    axios("http://13.230.65.59:8000/coal/supply/filter", {
       headers: {
         accept: "application / json",
       },
@@ -17,8 +16,8 @@ function DemandTable() {
       .then((res) => {
         const { data } = res;
         if (res.status === 200) {
-          setDemandData(data.message);
-          console.log(demandData,"demandata");
+          setSupplyData(data.message);
+          console.log(supplyData, "supplyData");
         }
       })
       .catch((err) => {
@@ -27,13 +26,13 @@ function DemandTable() {
   ];
 
   useEffect(() => {
-    getDemandData();
+    getsupplyData();
   }, []);
 
   return (
     <div class="flex demand-table mt-12  flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <Link className="demand-btn bg-blue-400" to={"/demandpost"}>
+        <Link className="demand-btn bg-blue-400" to={"/sellingpost"}>
           Add{" "}
         </Link>
 
@@ -58,31 +57,13 @@ function DemandTable() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Origin Id
+                    origin id
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Net physical stock
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  >
-                    is_active
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  >
-                    Demandent Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  >
-                    Dispatch qty
+                    status
                   </th>
                   <th
                     scope="col"
@@ -90,14 +71,69 @@ function DemandTable() {
                   >
                     importer
                   </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    stock_qty
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    stock_status
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in transit vessel name
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in_transit_eta_date
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in_transit_status
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in transit status
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in transit origin id
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in_transit_qty
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    in_transit_mines
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {demandData.map((data) => (
+                {supplyData.map((data) => (
                   <tr class="border-b">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {data.grade_id}
-                    
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {data.port_id}
@@ -105,9 +141,7 @@ function DemandTable() {
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {data.origin_id}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {data.net_physical_stock}
-                    </td>
+
                     <td
                       className={data.is_active ? "bg-green-500" : "bg-red-500"}
                       class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
@@ -123,20 +157,52 @@ function DemandTable() {
                         {data.is_active ? "true" : "fasle"}
                       </p>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {data.demandent_name}
-                    </td>
 
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {data.dispatch_qty}
+                      {data.importer}
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.stock_qty}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.stock_status}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.in_transit_vessel_name}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.in_transit_eta_date}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.in_transit_status}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.in_transit_origin_id}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.in_transit_mines}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.in_transit_qty}
+                    </td>
+                    {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.demandent_name}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {data.data}
+                    </td> */}
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {data.importer}
                     </td>
                     <td>
-                      <buton onClick={()=>{navigate("/demandedit", { state: data ,id:data.id});}} className="bg-blue-400 cursor-poiner py-2 px-4 rounded-md text-white">
+                      <buton
+                        onClick={() => {
+                          navigate("/demandedit", { state: data, id: data.id });
+                        }}
+                        className="bg-blue-400 cursor-pointer py-2 px-4 rounded-md text-white"
+                      >
                         Edit
-                      </buton >
+                      </buton>
                     </td>
                   </tr>
                 ))}
@@ -145,7 +211,7 @@ function DemandTable() {
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

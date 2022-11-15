@@ -4,8 +4,8 @@ import Selector from "../filters/DemandDD";
 import SelectPort from "../filters/EditSelect.jsx/SelectPort";
 import SelectGrade from "../filters/EditSelect.jsx/SelectGrade";
 import SelectOrigin from "../filters/EditSelect.jsx/SelectOrigin";
-  import { ToastContainer, toast } from "react-toastify";
-  import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import { FaSearch, FaBars } from "react-icons/fa";
 import axios from "axios";
@@ -16,7 +16,7 @@ function DemandEdit() {
   const location = useLocation();
   const [originId, setOriginId] = useState(null);
   const [gradeId, setgradeID] = useState(null);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [demandValues, setValues] = useState({
     dispatch_qty: "",
     importer: "",
@@ -33,7 +33,6 @@ function DemandEdit() {
     setValues({ ...demandValues, [name]: value });
   }
   function submit() {
-   
     demandValues.grade_id = parseInt(gradeId);
     demandValues.origin_id = parseInt(originId);
     parseInt(demandValues.dispatch_qty);
@@ -69,9 +68,12 @@ function DemandEdit() {
         // let { data, message, status } = res.data;
         console.log("result of creat field", res);
         if (res.status === 200) {
-          alert("ok submited");
-          toast('demand is edited sucessfully!')
-          navigate("/demand");
+          toast.success("demand edited sucessfully!", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          setTimeout(() => {
+            navigate("/demand");
+          }, 1500);
         }
       })
       .catch((err) => {
@@ -160,7 +162,7 @@ function DemandEdit() {
       <div className="btn-con">
         <button onClick={submit}> Edit</button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

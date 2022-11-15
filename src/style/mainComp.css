@@ -8,7 +8,7 @@
   margin-left: 10px;
   background-color: rgb(223, 222, 220);
 }
-.demandpost {
+.demandpost,.sellingpost {
   border: 2.2px solid rgb(140, 135, 135);
   margin-left: 20px;
   margin-top: 30px;
@@ -20,7 +20,15 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 40vh;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+.sellingpost form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 60vh;
   justify-content: center;
   align-items: center;
 }
@@ -32,20 +40,21 @@
   justify-content: center;
   align-items: center;
 }
-.priceform form div ,.demandpost form div {
+.priceform form div ,.demandpost form div ,.sellingpost form div{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.priceform form div input ,.demandpost form div input {
+.priceform form div input ,.demandpost form div input ,.sellingpost form div input{
   height: 5vh;
   border-radius: 3px;
   padding: 0px 10px;
 }
-.priceform form div h1 ,.demandpost form div h1{
-  font-size: 25px;
-  font-weight: bold;
+.priceform form div h1 ,.demandpost form div h1,.sellingpost h1{
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 
@@ -54,6 +63,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.btn-sell button{
+  margin-top: 50px;
 }
 .btn-con button {
   width: 150px;

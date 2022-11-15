@@ -5,12 +5,12 @@ import { FaSearch, FaBars } from "react-icons/fa";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 function DemandPost() {
   const [portId, setPortId] = useState(null);
   const [originId, setOriginId] = useState(null);
   const [gradeId, setgradeID] = useState(null);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [demandValues, setValues] = useState({
     dispatch_qty: "",
     importer: "",
@@ -30,28 +30,28 @@ function DemandPost() {
     if (!portId || !originId || !gradeId) {
       toast.error("plz select port id ,grade id ,origin id", {
         position: toast.POSITION.TOP_CENTER,
-        delay:10,
-        autoClose:false
+        delay: 10,
+        autoClose: false,
       });
-    }else{
-    demandValues.grade_id = parseInt(gradeId);
-    demandValues.origin_id = parseInt(originId);
-    parseInt(demandValues.dispatch_qty);
-    parseInt(demandValues.net_physical_stock);
-    demandValues.port_id = parseInt(portId);
-    console.log(demandValues, "demandValues");
-    createDemand(demandValues);
+    } else {
+      demandValues.grade_id = parseInt(gradeId);
+      demandValues.origin_id = parseInt(originId);
+      parseInt(demandValues.dispatch_qty);
+      parseInt(demandValues.net_physical_stock);
+      demandValues.port_id = parseInt(portId);
+      console.log(demandValues, "demandValues");
+      createDemand(demandValues);
 
-    setValues({
-      dispatch_qty: "",
-      importer: "",
-      net_physical_stock: "",
-      demandent_name: "",
-    });
-    setPortId(0);
-    setOriginId(0);
-    setgradeID(0);
-  }
+      setValues({
+        dispatch_qty: "",
+        importer: "",
+        net_physical_stock: "",
+        demandent_name: "",
+      });
+      setPortId(0);
+      setOriginId(0);
+      setgradeID(0);
+    }
   }
 
   const createDemand = (data) => {
@@ -71,7 +71,9 @@ function DemandPost() {
         // let { data, message, status } = res.data;
         console.log("result of creat field", res);
         if (res.status === 200) {
-          navigate('/demand')
+          setTimeout(() => {
+            navigate("/demand");
+          }, 1500);
           toast.success("category created sucessfully!", {
             position: toast.POSITION.TOP_RIGHT,
           });
