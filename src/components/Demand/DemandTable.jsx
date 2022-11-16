@@ -134,7 +134,7 @@ function DemandTable() {
                       {data.importer}
                     </td>
                     <td>
-                      <buton onClick={()=>{navigate("/demandedit", { state: data ,id:data.id});}} className="bg-blue-400 cursor-poiner py-2 px-4 rounded-md text-white">
+                      <buton onClick={()=>{navigate("/demandedit", { state: data ,id:data.id});}} className="bg-blue-400 cursor-pointer py-2 px-4 rounded-md text-white">
                         Edit
                       </buton >
                     </td>

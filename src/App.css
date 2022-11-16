@@ -17,6 +17,7 @@ nav {
   width: 100%;
   /* margin-left:23px ; */
   background-color: rgb(223, 222, 220);
+  border-bottom: 2px solid rgb(178, 178, 214);
 }
 .ul {
   width: 30%;
@@ -26,11 +27,13 @@ nav {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  padding: 1px 6px;
 }
 .ul li:hover {
-  background-color: rgb(139, 136, 136);
+  background-color: rgb(43, 38, 38);
   padding: 1px 6px;
   color: white;
+  border-radius: 4px;
 }
 .select {
   width: 270px !important;
@@ -38,7 +41,7 @@ nav {
 }
 .demand-table {
   width: 89.6%;
-  margin-left: 23px;
+  margin-left: 40px;
 }
 .demand-btn {
   position: absolute;

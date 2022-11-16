@@ -24,9 +24,9 @@ import Header from "./components/Header";
 import DemandPage from "./pages/Demand";
 import DemandPost from "./components/Demand/DemandPost";
 import DemandEdit from "./components/Demand/DemandEdit";
-import Selling from "./pages/Supply";
-import SellingPost from "./components/Supply/SupplyPost"
-import SellingEdit from "./components/Supply/SuppluEdit"
+import Supply from "./pages/Supply";
+import SupplyPost from "./components/Supply/SupplyPost"
+import SupplyEdit from "./components/Supply/SuppluEdit"
 
 function App() {
   return (
@@ -37,11 +37,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/demand" element={<DemandPage />} />
-          <Route path="/selling" element={<Selling />} />
+          <Route path="/supply" element={<Supply />} />
           <Route path="/demandpost" element={<DemandPost />} />
           <Route path="/demandedit" element={<DemandEdit />} />
-          <Route path="/sellingpost" element={<SellingPost/>}/>
-          <Route path="/sellingedit" element={<SellingEdit/>}/>
+          <Route path="/supplypost" element={<SupplyPost/>}/>
+          <Route path="/supplyedit" element={<SupplyEdit/>}/>
         </Routes>
       </BrowserRouter>
     </>

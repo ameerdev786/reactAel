@@ -13,7 +13,7 @@ function Header() {
             <a href="/demand">Demand</a>
           </li>
           <li>
-            <a href="/selling">selling</a>
+            <a href="/supply">supply</a>
           </li>
         </ul>
       </nav>

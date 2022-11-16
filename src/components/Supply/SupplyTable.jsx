@@ -32,7 +32,7 @@ function DemandTable() {
   return (
     <div class="flex demand-table mt-12  flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <Link className="demand-btn bg-blue-400" to={"/sellingpost"}>
+        <Link className="demand-btn bg-blue-400" to={"/supplypost"}>
           Add{" "}
         </Link>
 
@@ -75,14 +75,14 @@ function DemandTable() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    stock_qty
+                    stock qty
                   </th>
 
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    stock_status
+                    stock status
                   </th>
 
                   <th
@@ -95,13 +95,13 @@ function DemandTable() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    in_transit_eta_date
+                    in transit eta date
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    in_transit_status
+                    in transit status
                   </th>
                   <th
                     scope="col"
@@ -119,13 +119,13 @@ function DemandTable() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    in_transit_qty
+                    in transit qty
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    in_transit_mines
+                    in transit mines
                   </th>
                 </tr>
               </thead>
@@ -197,7 +197,7 @@ function DemandTable() {
                     <td>
                       <buton
                         onClick={() => {
-                          navigate("/demandedit", { state: data, id: data.id });
+                          navigate("/supplyedit", { state: data, id: data.id });
                         }}
                         className="bg-blue-400 cursor-pointer py-2 px-4 rounded-md text-white"
                       >

@@ -6,7 +6,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-function DemandPost() {
+function SupplyPost() {
   const [portId, setPortId] = useState(null);
   const [originId, setOriginId] = useState(null);
   const [gradeId, setgradeID] = useState(null);
@@ -81,7 +81,7 @@ function DemandPost() {
             position: toast.POSITION.TOP_RIGHT,
           });
           setTimeout(()=>{
-            navigate("/selling");
+            navigate("/supply");
           },1500)
         }
       })
@@ -124,7 +124,7 @@ function DemandPost() {
           />
         </div>
         <div>
-          <h1>stock_status</h1>
+          <h1>stock status</h1>
           <input
             type="text"
             name="stock_status"
@@ -133,7 +133,7 @@ function DemandPost() {
           />
         </div>
         <div className="w-full ">
-          <h1>in_transit eta date</h1>
+          <h1>in transit eta date</h1>
           <input
             type="date"
             className="w-3/5"
@@ -144,7 +144,7 @@ function DemandPost() {
         </div>
 
         <div>
-          <h1>in_transit vessel name</h1>
+          <h1>in transit vessel name</h1>
           <input
             type="text"
             name="in_transit_vessel_name"
@@ -154,7 +154,7 @@ function DemandPost() {
         </div>
 
         <div>
-          <h1>in_transit status</h1>
+          <h1>in transit status</h1>
           <input
             type="text"
             name="in_transit_status"
@@ -164,7 +164,7 @@ function DemandPost() {
         </div>
 
         <div>
-          <h1>in_transit origin_id</h1>
+          <h1>in transit origin id</h1>
           <input
             type="number"
             name="in_transit_origin_id"
@@ -174,7 +174,7 @@ function DemandPost() {
         </div>
 
         <div>
-          <h1>in_transit mines</h1>
+          <h1>in transit mines</h1>
           <input
             type="text"
             name="in_transit_mines"
@@ -184,7 +184,7 @@ function DemandPost() {
         </div>
 
         <div>
-          <h1>in_transit qty</h1>
+          <h1>in transit qty</h1>
           <input
             type="number"
             name="in_transit_qty"
@@ -201,4 +201,4 @@ function DemandPost() {
   );
 }
 
-export default DemandPost;
+export default SupplyPost;
