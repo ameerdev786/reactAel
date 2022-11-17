@@ -49,8 +49,9 @@
   flex-direction: column;
 }
 .priceform form div input ,.demandpost form div input ,.sellingpost form div input{
-  height: 5vh;
+  height: 7vh;
   border-radius: 3px;
+  width: 60%;
   padding: 0px 10px;
 }
 .priceform form div h1 ,.demandpost form div h1,.sellingpost h1{
@@ -179,6 +180,30 @@
 }
 
 /*  responsiveness */
+
+@media screen and (max-width:1200px) {
+  .demandpost form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  
+}
+@media screen and (max-width:960px) {
+  .demandpost form {
+    grid-template-columns: repeat(1, 1fr);
+    height: auto;
+    padding: 10px 5px;
+    margin: 10px;
+  }
+  .priceform form div input ,.demandpost form div input ,.sellingpost form div input{
+    height: 7vh;
+    border-radius: 3px;
+    width: 65%;
+    padding: 0px 10px;
+  }
+
+  
+}
 @media screen and (max-width: 1200px) {
   .main {
     height: 100%;
