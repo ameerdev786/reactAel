@@ -9,13 +9,14 @@ function DemandTable() {
   const [demandData, setDemandData] = useState([]);
   const navigate=useNavigate()
   const getDemandData = () => [
-    axios("http://13.230.65.59:8000/coal/demand/filter", {
+    axios("http://35.79.69.32:8000/coal/demand/filter", {
       headers: {
         accept: "application / json",
       },
     })
       .then((res) => {
         const { data } = res;
+        console.log(res,"demand resuult");
         if (res.status === 200) {
           setDemandData(data.message);
           console.log(demandData,"demandata");

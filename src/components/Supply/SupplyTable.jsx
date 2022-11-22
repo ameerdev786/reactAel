@@ -8,7 +8,7 @@ function DemandTable() {
   const [supplyData, setSupplyData] = useState([]);
   const navigate = useNavigate();
   const getsupplyData = () => [
-    axios("http://13.230.65.59:8000/coal/supply/filter", {
+    axios("http://35.79.69.32:8000/coal/supply/filter", {
       headers: {
         accept: "application / json",
       },

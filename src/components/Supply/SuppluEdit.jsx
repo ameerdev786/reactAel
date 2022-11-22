@@ -29,9 +29,9 @@ function DemandEdit() {
     in_transit_mines: "",
     in_transit_qty: "",
   });
-  const gradeApi = "http://13.230.65.59:8000/coal/grade";
-  const originApi = "http://13.230.65.59:8000/coal/origin";
-  const portApi = "http://13.230.65.59:8000/coal/port";
+  const gradeApi = "http://35.79.69.32:8000/coal/grade";
+  const originApi = "http://35.79.69.32:8000/coal/origin";
+  const portApi = "http://35.79.69.32:8000/coal/port";
 
   function changeHandler(e) {
     let value = e.target.value;
@@ -70,7 +70,7 @@ function DemandEdit() {
 
     axios({
       method: "put",
-      url: `http://13.230.65.59:8000/coal/supply/${location.state.id}`,
+      url: `http://35.79.69.32:8000/coal/supply/${location.state.id}`,
       headers: {
         accept: "application/json",
         // "Content-Type": "multipart/form-data",
