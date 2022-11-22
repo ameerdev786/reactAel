@@ -7,9 +7,21 @@ const Selector = ({ title, api }) => {
   const [filtersOption, setFilters] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState("");
+  const [id,setId]=useState()
   const [open, setOpen] = useState(false);
-  console.log(selected);
 
+      useEffect(()=>{
+    if(selected.includes("origin")){
+    localStorage.setItem('origin',id)
+    }else if(selected.includes("grade")){
+      localStorage.setItem('grade',id)
+    }
+    else{
+      localStorage.setItem('port',id)
+
+    }
+
+      },[id])
   useEffect(() => {
     fetch(api)
       .then((res) => res.json())
@@ -57,7 +69,7 @@ const Selector = ({ title, api }) => {
             onClick={() => {
               if (option?.name?.toLowerCase() !== selected.toLowerCase()) {
                 setSelected(option?.name);
-                console.log(option.id);
+                setId(parseInt(option.id))
                 setOpen(false);
                 setInputValue("");
               }

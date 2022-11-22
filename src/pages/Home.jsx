@@ -13,6 +13,7 @@ import "../index.css";
 import { FaSearch, FaBars } from "react-icons/fa";
 function Home() {
       const [openFilters, setFIltetrs] = useState(true);
+      const[sellingPrice,setSellingPrice]=useState(0)
 
   return (
     <div className='Ael'>
@@ -27,10 +28,10 @@ function Home() {
       <div className="main">
         <div className="infogrid">
           <div>
-            <PriceForm />
+            <PriceForm setSellingPrice={setSellingPrice} />
           </div>
           <div>
-            <DisplayInfo />
+            <DisplayInfo sellingPrice={sellingPrice}/>
             {/* <Kp4 /> */}
           </div>
           <div className="kps">

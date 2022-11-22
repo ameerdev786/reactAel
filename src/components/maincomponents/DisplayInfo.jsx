@@ -1,6 +1,6 @@
 import React from "react";
 
-function DisplayInfo() {
+function DisplayInfo({sellingPrice}) {
   return (
     <div className="info">
       <div className="first-sec">
@@ -10,10 +10,10 @@ function DisplayInfo() {
           <h1 >Port Name</h1>
         </div>
         <div className="total">
-          <h1>$268.45</h1>
+          <h1>${sellingPrice}</h1>
           <div>
             <p>Coal Grade</p>
-            <h1>4200 GAR</h1>
+            <h1>...</h1>
           </div>
         </div>
       </div>
