@@ -5,10 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-function PriceForm({setSellingPrice}) {
-  const navigate=useNavigate()
+function PriceForm({ setSellingPrice }) {
+  const navigate = useNavigate();
   const [priceValues, setValues] = useState({
-    competitor:"",
+    competitor: "",
     baseprice: "",
     indexprice: "",
   });
@@ -18,30 +18,30 @@ function PriceForm({setSellingPrice}) {
     setValues({ ...priceValues, [name]: value });
   }
   function submit() {
-    const  gradeId=parseInt(localStorage.getItem('grade'))
-    const portId=parseInt(localStorage.getItem('port'))
-    const originId=parseInt(localStorage.getItem('origin'))
-    
-createPriceGrade({portId,gradeId,originId},priceValues)
+    const gradeId = parseInt(localStorage.getItem("grade"));
+    const portId = parseInt(localStorage.getItem("port"));
+    const originId = parseInt(localStorage.getItem("origin"));
+
+    createPriceGrade({ portId, gradeId, originId }, priceValues);
     console.log(priceValues, "priceValues");
     setValues({
       competitor: "",
       baseprice: "",
       indexprice: "",
-    })
+    });
     // localStorage.clear()
   }
 
-  const createPriceGrade = (ids,prices) => {
-    console.log("ids",  ids,"price",prices);
-  let data={   
-     competitor_price: prices.competitor,
-    base_price: prices.baseprice,
-    index_price: prices.indexprice,
-    grade_id: ids.gradeId,
-    port_id: ids.portId,
-    origin_id: ids.originId
-  }
+  const createPriceGrade = (ids, prices) => {
+    console.log("ids", ids, "price", prices);
+    let data = {
+      competitor_price: prices.competitor,
+      base_price: prices.baseprice,
+      index_price: prices.indexprice,
+      grade_id: ids.gradeId,
+      port_id: ids.portId,
+      origin_id: ids.originId,
+    };
     axios({
       method: "post",
       url: "http://35.79.69.32:8000/coal/selling-price",
@@ -55,18 +55,19 @@ createPriceGrade({portId,gradeId,originId},priceValues)
       .then((res) => {
         // let { data, message, status } = res.data;
         console.log("result of post req", res);
-        const sellingPrice=Object.values(res.data)
+        const sellingPrice = Object.values(res.data);
         if (res.status === 200) {
           toast.success("selling price added sucessfully!", {
             position: toast.POSITION.TOP_RIGHT,
           });
-          setSellingPrice(sellingPrice)
+          localStorage.setItem("sellingPrice", sellingPrice);
+          window.location.reload();
         }
       })
       .catch((err) => {
         console.error(err);
       });
-  }
+  };
 
   return (
     <div className="priceform">
@@ -102,7 +103,7 @@ createPriceGrade({portId,gradeId,originId},priceValues)
       <div className="btn-con">
         <button onClick={submit}>Submit</button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
